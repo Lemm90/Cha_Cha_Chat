@@ -15,6 +15,7 @@ public class ClientHandler {
     private static final String WHATISMYNAME = "/who_am_i";
     private static final String STATISTIC = "/stat";
     private static final String EXIT = "/exit";
+    private static final String CHANGE_NICK = "/change_nick";
 
     public String getUsername() {
         return username;
@@ -63,24 +64,40 @@ public class ClientHandler {
         }).start();
     }
 
-    public void sendMessage(String message) throws IOException {
-        out.writeUTF(message);
+    public void sendMessage(String message){
+        try {
+            out.writeUTF(message);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void commandMessage(String command) throws IOException {
+    public void commandMessage(String command) {
         if(command.equals(STATISTIC)){
-            out.writeUTF("Количество ваших сообщений: " + numberOfMessage);
+            try {
+                out.writeUTF("Количество ваших сообщений: " + numberOfMessage);
+            } catch (IOException e) {
+                disconnect();
+            }
             return;
         }
 
         if(command.equals(EXIT)){
-            out.writeUTF(command);
-            socket.close();
+            try {
+                out.writeUTF(command);
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         }
 
         if(command.equals(WHATISMYNAME)){
-            out.writeUTF("Ваш ник: " + username);
+            try {
+                out.writeUTF("Ваш ник: " + username);
+            } catch (IOException e) {
+                disconnect();
+            }
             return;
         }
 
@@ -90,8 +107,26 @@ public class ClientHandler {
             return;
         }
 
+//      НЕ ДОДЕЛАЛ! --->
+        
+//        if(command.equals(CHANGE_NICK)){
+//            String newNick = command.split("\\s")[1];
+//            if(!server.isUserOline(newNick)){
+//                try {
+//                    out.writeUTF("К сожалению такой ник уже существует. Придумайте новый ник.");
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            username = newNick;
+//            try {
+//                out.writeUTF("Вы сменили ник на: " + username);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            return;
+//        }
     }
-
 
     public void disconnect() {
         server.unsubscribe(this);

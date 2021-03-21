@@ -1,20 +1,20 @@
 package ru.khorolskiy.cha_cha_chat.client;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller implements Initializable {
     @FXML
     TextField msgField, usernameField;
 
@@ -24,25 +24,37 @@ public class Controller {
     @FXML
     HBox loginPanel, msgPanel;
 
+    @FXML
+    ListView<String> clientsList;
+
     private Socket socket;
     private DataInputStream in;
     private DataOutputStream out;
     private String username;
     private static final String EXIT = "/exit";
 
-    public void setUsername(String username) {
+    public void setUsername(String username)  {
         this.username = username;
         if (username != null) {
             loginPanel.setVisible(false);
             loginPanel.setManaged(false);
             msgPanel.setVisible(true);
             msgPanel.setManaged(true);
+            clientsList.setVisible(true);
+            clientsList.setManaged(true);
         } else {
             loginPanel.setVisible(true);
             loginPanel.setManaged(true);
             msgPanel.setVisible(false);
             msgPanel.setManaged(false);
+            clientsList.setVisible(false);
+            clientsList.setManaged(false);
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setUsername(null);
     }
 
     public void login() {
@@ -86,11 +98,24 @@ public class Controller {
                     // Цикл общения
                     while (true) {
                         String msg = in.readUTF();
-                        if(msg.equals(EXIT)){
-                            msgArea.clear();
-                            usernameField.clear();
-                            socket.close();
-                            continue;
+                        if(msg.startsWith("/")) {
+                            if (msg.equals(EXIT)) {
+                                msgArea.clear();
+                                usernameField.clear();
+                                socket.close();
+                                continue;
+                            }
+                            if(msg.startsWith("/clients_list ")){
+                                String[] tokens = msg.split("\\s");
+
+                                Platform.runLater(()-> {
+                                    clientsList.getItems().clear();
+                                    for (int i = 1; i < tokens.length; i++) {
+                                        clientsList.getItems().add(tokens[i]);
+                                    }
+                                });
+                                continue;
+                            }
                         }
                         msgArea.appendText(msg + "\n");
                     }
@@ -131,5 +156,11 @@ public class Controller {
 
     public void sendHelp(ActionEvent actionEvent) {
         msgArea.appendText(" /stat - количество сообщений \n /who_am_i - Ваше имя \n /w 'username' - личное сообщение \n /exit - выход \n");
+    }
+
+    public void logout(ActionEvent actionEvent) throws IOException {
+        msgArea.clear();
+        usernameField.clear();
+        socket.close();
     }
 }
