@@ -32,15 +32,28 @@ public class ClientHandler {
                 while (true) {
                     String msg = in.readUTF();
                     if (msg.startsWith("/login ")) {
-                        // login Bob
-                        String usernameFromLogin = msg.split("\\s")[1];
+                        // login Bob 100
 
-                        if (server.isUserOline(usernameFromLogin)) {
-                            sendMessage("/login_failed Current nickname is already used");
+                        String[] tokens = msg.split("\\s+");
+                        if(tokens.length !=3){
+                            sendMessage("/login_failed Введите имя пользователя и пароль");
                             continue;
                         }
 
-                        username = usernameFromLogin;
+                        String login = tokens[1];
+                        String password = tokens[2];
+
+                        String userNickname = server.getAuthenticationProvider().getNicknameByLiginAndPssword(login, password);
+                        if(userNickname == null){
+                            sendMessage("/login_failed Введен некорректный логин/пароль");
+                            continue;
+                        }
+                        if (server.isUserOline(userNickname)) {
+                            sendMessage("/login_failed Учетная запись уже используется");
+                            continue;
+                        }
+
+                        username = userNickname;
                         sendMessage("/login_ok " + username);
                         server.subscribe(this);
                         break;
@@ -73,7 +86,7 @@ public class ClientHandler {
     }
 
     public void commandMessage(String command) {
-        if(command.equals(STATISTIC)){
+        if (command.equals(STATISTIC)) {
             try {
                 out.writeUTF("Количество ваших сообщений: " + numberOfMessage);
             } catch (IOException e) {
@@ -82,7 +95,7 @@ public class ClientHandler {
             return;
         }
 
-        if(command.equals(EXIT)){
+        if (command.equals(EXIT)) {
             try {
                 out.writeUTF(command);
                 socket.close();
@@ -92,7 +105,7 @@ public class ClientHandler {
 
         }
 
-        if(command.equals(WHATISMYNAME)){
+        if (command.equals(WHATISMYNAME)) {
             try {
                 out.writeUTF("Ваш ник: " + username);
             } catch (IOException e) {
@@ -101,31 +114,33 @@ public class ClientHandler {
             return;
         }
 
-        if(command.startsWith("/w")){
+        if (command.startsWith("/w")) {
             String[] privatString = command.split("\\s", 3);
+            if (privatString.length != 3) {
+                sendMessage("Введена некорректная команда");
+                return;
+            }
             server.privateMessage(this, privatString[1], privatString[2]);
             return;
         }
 
-//      НЕ ДОДЕЛАЛ! --->
-        
-//        if(command.equals(CHANGE_NICK)){
-//            String newNick = command.split("\\s")[1];
-//            if(!server.isUserOline(newNick)){
-//                try {
-//                    out.writeUTF("К сожалению такой ник уже существует. Придумайте новый ник.");
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//            username = newNick;
-//            try {
-//                out.writeUTF("Вы сменили ник на: " + username);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//            return;
-//        }
+
+        if (command.startsWith(CHANGE_NICK)) {
+            String[] tokens = command.split("\\s+");
+            if (tokens.length != 2) {
+                sendMessage("Введена некорректная команда");
+                return;
+            }
+            String newNick = tokens[1];
+            if (server.isUserOline(newNick)) {
+                sendMessage("К сожалению такой никнейм уже существует. Придумайте новый ник.");
+                return;
+            }
+            server.getAuthenticationProvider().changeNickname(this.username, newNick);
+            username = newNick;
+            sendMessage("Вы изменили никнейм на: " + newNick);
+            server.broadcastClientsList();
+        }
     }
 
     public void disconnect() {

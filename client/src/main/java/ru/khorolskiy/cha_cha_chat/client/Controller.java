@@ -16,7 +16,10 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML
-    TextField msgField, usernameField;
+    TextField msgField, loginField;
+
+    @FXML
+    PasswordField passwordField;
 
     @FXML
     TextArea msgArea;
@@ -35,22 +38,14 @@ public class Controller implements Initializable {
 
     public void setUsername(String username)  {
         this.username = username;
-        if (username != null) {
-            loginPanel.setVisible(false);
-            loginPanel.setManaged(false);
-            msgPanel.setVisible(true);
-            msgPanel.setManaged(true);
-            clientsList.setVisible(true);
-            clientsList.setManaged(true);
-        } else {
-            loginPanel.setVisible(true);
-            loginPanel.setManaged(true);
-            msgPanel.setVisible(false);
-            msgPanel.setManaged(false);
-            clientsList.setVisible(false);
-            clientsList.setManaged(false);
+        boolean usernameIsNull = username == null;
+        loginPanel.setVisible(usernameIsNull);
+        loginPanel.setManaged(usernameIsNull);
+        msgPanel.setVisible(!usernameIsNull);
+        msgPanel.setManaged(!usernameIsNull);
+        clientsList.setVisible(!usernameIsNull);
+        clientsList.setManaged(!usernameIsNull);
         }
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -58,18 +53,18 @@ public class Controller implements Initializable {
     }
 
     public void login() {
+
+        if (loginField.getText().isEmpty()) {
+            showErrorAlert("Имя пользователя не может быть пустым");
+            return;
+        }
+
         if (socket == null || socket.isClosed()) {
             connect();
         }
 
-        if (usernameField.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Имя пользователя не может быть пустым", ButtonType.OK);
-            alert.showAndWait();
-            return;
-        }
-
         try {
-            out.writeUTF("/login " + usernameField.getText());
+            out.writeUTF("/login " + loginField.getText() + " " + passwordField.getText());
         } catch (IOException e) {
             e.printStackTrace();
             return;
@@ -101,7 +96,7 @@ public class Controller implements Initializable {
                         if(msg.startsWith("/")) {
                             if (msg.equals(EXIT)) {
                                 msgArea.clear();
-                                usernameField.clear();
+                                loginField.clear();
                                 socket.close();
                                 continue;
                             }
@@ -127,8 +122,7 @@ public class Controller implements Initializable {
             });
             t.start();
         } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Невозможно подключиться к серверу", ButtonType.OK);
-            alert.showAndWait();
+            showErrorAlert("Невозможно подключиться к серверу");
         }
     }
 
@@ -138,8 +132,7 @@ public class Controller implements Initializable {
             msgField.clear();
             msgField.requestFocus();
         } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Невозможно отправить сообщение", ButtonType.OK);
-            alert.showAndWait();
+            showErrorAlert("Невозможно отправить сообщение");
         }
     }
 
@@ -155,12 +148,24 @@ public class Controller implements Initializable {
     }
 
     public void sendHelp(ActionEvent actionEvent) {
-        msgArea.appendText(" /stat - количество сообщений \n /who_am_i - Ваше имя \n /w 'username' - личное сообщение \n /exit - выход \n");
+        msgArea.appendText(" /stat - количество сообщений \n " +
+                "/who_am_i - Ваше имя \n " +
+                "/w 'username' - личное сообщение \n " +
+                "/exit - выход \n" +
+                "/change_nick 'your new username' - сменить никнейм");
     }
 
     public void logout(ActionEvent actionEvent) throws IOException {
         msgArea.clear();
-        usernameField.clear();
+        loginField.clear();
         socket.close();
+    }
+
+    private void showErrorAlert(String message){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText(message);
+        alert.setTitle("Cha-cha-Chat");
+        alert.setHeaderText(null);
+        alert.showAndWait();
     }
 }

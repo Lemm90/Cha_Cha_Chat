@@ -5,7 +5,8 @@
 
 <VBox alignment="center" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="ru.khorolskiy.cha_cha_chat.client.Controller">
     <HBox fx:id="loginPanel">
-        <TextField fx:id="usernameField" promptText="Укажите свой ник" HBox.hgrow="ALWAYS" />
+        <TextField fx:id="loginField" promptText="Введите имя пользователя" HBox.hgrow="ALWAYS" />
+        <PasswordField fx:id="passwordField" promptText="Укажите пароль" HBox.hgrow="ALWAYS" />
         <Button onAction="#login" text="Войти" textFill="#088626" />
     </HBox>
     <HBox VBox.vgrow="ALWAYS">
