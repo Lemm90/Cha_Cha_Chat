@@ -158,6 +158,7 @@ public class Controller implements Initializable {
     public void logout(ActionEvent actionEvent) throws IOException {
         msgArea.clear();
         loginField.clear();
+        passwordField.clear();
         socket.close();
     }
 

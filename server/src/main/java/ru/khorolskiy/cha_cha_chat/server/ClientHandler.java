@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.sql.SQLException;
 
 public class ClientHandler {
     private Server server;
@@ -52,7 +53,6 @@ public class ClientHandler {
                             sendMessage("/login_failed Учетная запись уже используется");
                             continue;
                         }
-
                         username = userNickname;
                         sendMessage("/login_ok " + username);
                         server.subscribe(this);
@@ -69,7 +69,7 @@ public class ClientHandler {
                     server.broadcastMessage(username + ": " + msg);
                     numberOfMessage++;
                 }
-            } catch (IOException e) {
+            } catch (IOException | SQLException e) {
                 e.printStackTrace();
             } finally {
                 disconnect();
@@ -123,7 +123,6 @@ public class ClientHandler {
             server.privateMessage(this, privatString[1], privatString[2]);
             return;
         }
-
 
         if (command.startsWith(CHANGE_NICK)) {
             String[] tokens = command.split("\\s+");
