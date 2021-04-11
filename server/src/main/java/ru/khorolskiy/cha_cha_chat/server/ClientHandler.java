@@ -1,12 +1,15 @@
 package ru.khorolskiy.cha_cha_chat.server;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.io.*;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 
 public class ClientHandler {
+    public static final Logger LOGGER = LogManager.getLogger(ClientHandler.class);
     private Server server;
     private Socket socket;
     private DataInputStream in;
@@ -33,7 +36,7 @@ public class ClientHandler {
                 while (true) {
                     String msg = in.readUTF();
                     if (msg.startsWith("/login ")) {
-                        // login Bob 100
+                        // login Bob 100500
 
                         String[] tokens = msg.split("\\s+");
                         if(tokens.length !=3){
@@ -44,7 +47,7 @@ public class ClientHandler {
                         String login = tokens[1];
                         String password = tokens[2];
 
-                        String userNickname = server.getAuthenticationProvider().getNicknameByLiginAndPssword(login, password);
+                        String userNickname = server.getAuthenticationProvider().getNicknameByLoginAndPssword(login, password);
                         if(userNickname == null){
                             sendMessage("/login_failed Введен некорректный логин/пароль");
                             continue;
@@ -92,10 +95,12 @@ public class ClientHandler {
             } catch (IOException e) {
                 disconnect();
             }
+            LOGGER.trace(String.format("Клиент %s ввел комманду %s", getUsername(), STATISTIC) );
             return;
         }
 
         if (command.equals(EXIT)) {
+            LOGGER.trace(String.format("Клиент %s ввел комманду %s", getUsername(), EXIT) );
             try {
                 out.writeUTF(command);
                 socket.close();
@@ -111,6 +116,7 @@ public class ClientHandler {
             } catch (IOException e) {
                 disconnect();
             }
+            LOGGER.trace(String.format("Клиент %s ввел комманду %s", getUsername(), WHATISMYNAME) );
             return;
         }
 
@@ -121,11 +127,13 @@ public class ClientHandler {
                 return;
             }
             server.privateMessage(this, privatString[1], privatString[2]);
+            LOGGER.trace(String.format("Клиент %s ввел комманду приватных сообщений", getUsername()) );
             return;
         }
-
+        // todo надо сделать проверку на никнейм в БД
         if (command.startsWith(CHANGE_NICK)) {
             String[] tokens = command.split("\\s+");
+            LOGGER.trace(String.format("Клиент %s ввел комманду %s", getUsername(), CHANGE_NICK) );
             if (tokens.length != 2) {
                 sendMessage("Введена некорректная команда");
                 return;
@@ -146,8 +154,10 @@ public class ClientHandler {
         server.unsubscribe(this);
         if (socket != null) {
             try {
+                LOGGER.info(String.format("Клиент %s закрыл соединение", getUsername()));
                 socket.close();
             } catch (IOException e) {
+                LOGGER.error("При socket.close() оказалось socket == null");
                 e.printStackTrace();
             }
         }

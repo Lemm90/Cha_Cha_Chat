@@ -76,6 +76,8 @@ public class Controller implements Initializable {
             socket = new Socket("localhost", 8189);
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
+            HistoryMessage historyMessage = new HistoryMessage();
+            historyMessage.connect();
             Thread t = new Thread(() -> {
                 try {
                     // Цикл авторизации
@@ -83,6 +85,8 @@ public class Controller implements Initializable {
                         String msg = in.readUTF();
                         if (msg.startsWith("/login_ok ")) {
                             setUsername(msg.split("\\s")[1]);
+                            msgArea.clear();
+                            historyMessage.outputHistory(this);
                             break;
                         }
                         if (msg.startsWith("/login_failed ")) {
@@ -113,6 +117,7 @@ public class Controller implements Initializable {
                             }
                         }
                         msgArea.appendText(msg + "\n");
+                        historyMessage.writingMessagesToHistory(msg);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

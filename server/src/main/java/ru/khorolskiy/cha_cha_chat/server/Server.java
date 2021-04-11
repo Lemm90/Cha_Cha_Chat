@@ -1,35 +1,40 @@
 package ru.khorolskiy.cha_cha_chat.server;
 
-import java.io.IOException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Server {
+
     private int port;
     private List<ClientHandler> clients;
     private DbAuthenticationProvider authenticationProvider;
-
     public AuthenticationProvider getAuthenticationProvider() {
         return authenticationProvider;
     }
-
-    public Server(int port) {
+    public static final Logger LOGGER = LogManager.getLogger(Server.class);
+    public Server(int port){
         this.port = port;
         this.clients = new ArrayList<>();
         this.authenticationProvider = new DbAuthenticationProvider();
         this.authenticationProvider.connect();
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.println("Сервер запущен на порту " + port);
+//            System.out.println("Сервер запущен на порту " + port);
+            LOGGER.info(String.format("Серевер запущен на порту: %s\n", port));
             while (true) {
                 System.out.println("Ждем нового клиента..");
                 Socket socket = serverSocket.accept();
-                System.out.println("Клиент подключился");
+//                System.out.println("Клиент подключился");
+                LOGGER.info("Клиент подключился");
                 new ClientHandler(this, socket);
             }
         } catch (IOException e) {
+            LOGGER.error("Клиенту не удалось подключиться");
             e.printStackTrace();
         } finally {
             this.authenticationProvider.disconnect();
@@ -88,4 +93,5 @@ public class Server {
             clientHandler.sendMessage(clientsList);
         }
     }
+
 }

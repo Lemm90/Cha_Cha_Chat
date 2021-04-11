@@ -8,7 +8,7 @@ public class DbAuthenticationProvider implements AuthenticationProvider{
 
 
     @Override
-    public String getNicknameByLiginAndPssword(String login, String password) throws SQLException {
+    public String getNicknameByLoginAndPssword(String login, String password) throws SQLException {
         try ( ResultSet rs = stmt.executeQuery(String.format("select nickname from clients where login = '%s' and password = '%s';", login, password))){
             while (rs.next())
                 return rs.getString("nickname");

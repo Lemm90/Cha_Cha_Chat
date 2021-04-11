@@ -1,0 +1,28 @@
+INFO  12-04-2021 00:06:08 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
+
+INFO  12-04-2021 00:06:31 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
+INFO  12-04-2021 00:08:41 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
+INFO  12-04-2021 00:09:07 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
+INFO  12-04-2021 00:15:51 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
+
+INFO  12-04-2021 00:16:12 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
+INFO  12-04-2021 00:17:26 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
+INFO  12-04-2021 00:23:47 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
+
+INFO  12-04-2021 00:24:13 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
+INFO  12-04-2021 00:25:19 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
+
+INFO  12-04-2021 00:25:33 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
+INFO  12-04-2021 00:27:19 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
+
+INFO  12-04-2021 00:27:40 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
+TRACE 12-04-2021 00:27:44 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:98) - Клиент %s ввел комманду %s
+INFO  12-04-2021 00:30:49 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
+
+INFO  12-04-2021 00:31:10 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
+TRACE 12-04-2021 00:31:16 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:98) - Клиент SuperPeter ввел комманду /stat
+TRACE 12-04-2021 00:31:44 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:119) - Клиент SuperPeter ввел комманду /who_am_i
+INFO  12-04-2021 00:34:55 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
+
+INFO  12-04-2021 00:35:10 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
+INFO  12-04-2021 00:35:13 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:157) - Клиент SuperPeter закрыл соединение
