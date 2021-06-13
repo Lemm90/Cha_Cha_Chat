@@ -1,28 +1,18 @@
-INFO  12-04-2021 00:06:08 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
+INFO  30-05-2021 22:12:38 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8189
 
-INFO  12-04-2021 00:06:31 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
-INFO  12-04-2021 00:08:41 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
-INFO  12-04-2021 00:09:07 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
-INFO  12-04-2021 00:15:51 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
+INFO  30-05-2021 22:13:14 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент %s подключился
+INFO  30-05-2021 22:35:31 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8189
 
-INFO  12-04-2021 00:16:12 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
-INFO  12-04-2021 00:17:26 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
-INFO  12-04-2021 00:23:47 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
+INFO  30-05-2021 22:35:54 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  30-05-2021 22:36:06 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:150) - Клиент 'SuperPeter' сменил свой ник на: 'Peter'
+INFO  30-05-2021 22:45:52 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:98) - Клиент 'Peter' ввел комманду '/stat'
+INFO  30-05-2021 23:00:44 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8189
 
-INFO  12-04-2021 00:24:13 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
-INFO  12-04-2021 00:25:19 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
+INFO  30-05-2021 23:01:04 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  30-05-2021 23:01:50 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:150) - Клиент 'Peter' сменил свой ник на: 'SuperPeter'
+INFO  30-05-2021 23:07:32 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8189
 
-INFO  12-04-2021 00:25:33 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
-INFO  12-04-2021 00:27:19 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
-
-INFO  12-04-2021 00:27:40 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
-TRACE 12-04-2021 00:27:44 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:98) - Клиент %s ввел комманду %s
-INFO  12-04-2021 00:30:49 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
-
-INFO  12-04-2021 00:31:10 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
-TRACE 12-04-2021 00:31:16 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:98) - Клиент SuperPeter ввел комманду /stat
-TRACE 12-04-2021 00:31:44 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:119) - Клиент SuperPeter ввел комманду /who_am_i
-INFO  12-04-2021 00:34:55 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:28) - Серевер запущен на порту: 8189
-
-INFO  12-04-2021 00:35:10 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:33) - Клиент подключился
-INFO  12-04-2021 00:35:13 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:157) - Клиент SuperPeter закрыл соединение
+INFO  30-05-2021 23:07:49 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  30-05-2021 23:08:10 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:98) - Клиент 'SuperPeter' ввел комманду '/stat'
+INFO  30-05-2021 23:08:39 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:150) - Клиент 'SuperPeter' сменил свой ник на: 'PPPeee'
+INFO  30-05-2021 23:08:56 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:150) - Клиент 'PPPeee' сменил свой ник на: 'Super_Peter'

@@ -5,10 +5,10 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 
 public class ClientHandler {
+    //todo logger откорректировать во всем чате
     public static final Logger LOGGER = LogManager.getLogger(ClientHandler.class);
     private Server server;
     private Socket socket;
@@ -91,16 +91,16 @@ public class ClientHandler {
     public void commandMessage(String command) {
         if (command.equals(STATISTIC)) {
             try {
-                out.writeUTF("Количество ваших сообщений: " + numberOfMessage);
+                out.writeUTF("Количество ваших сообщений за сессию составляет: " + numberOfMessage);
             } catch (IOException e) {
                 disconnect();
             }
-            LOGGER.trace(String.format("Клиент %s ввел комманду %s", getUsername(), STATISTIC) );
+            LOGGER.info(String.format("Клиент '%s' ввел комманду '%s'", getUsername(), STATISTIC) );
             return;
         }
 
         if (command.equals(EXIT)) {
-            LOGGER.trace(String.format("Клиент %s ввел комманду %s", getUsername(), EXIT) );
+            LOGGER.info(String.format("Клиент '%s' ввел комманду '%s'", getUsername(), EXIT) );
             try {
                 out.writeUTF(command);
                 socket.close();
@@ -116,7 +116,7 @@ public class ClientHandler {
             } catch (IOException e) {
                 disconnect();
             }
-            LOGGER.trace(String.format("Клиент %s ввел комманду %s", getUsername(), WHATISMYNAME) );
+            LOGGER.info(String.format("Клиент '%s' ввел комманду '%s'", getUsername(), WHATISMYNAME) );
             return;
         }
 
@@ -127,22 +127,27 @@ public class ClientHandler {
                 return;
             }
             server.privateMessage(this, privatString[1], privatString[2]);
-            LOGGER.trace(String.format("Клиент %s ввел комманду приватных сообщений", getUsername()) );
+            LOGGER.info(String.format("Клиент %s ввел комманду приватных сообщений", getUsername()) );
             return;
         }
-        // todo надо сделать проверку на никнейм в БД
         if (command.startsWith(CHANGE_NICK)) {
             String[] tokens = command.split("\\s+");
-            LOGGER.trace(String.format("Клиент %s ввел комманду %s", getUsername(), CHANGE_NICK) );
             if (tokens.length != 2) {
                 sendMessage("Введена некорректная команда");
+                LOGGER.info(String.format("Клиент '%s' ввел неккорректную команду: '%s'", getUsername(), command) );
                 return;
             }
             String newNick = tokens[1];
-            if (server.isUserOline(newNick)) {
-                sendMessage("К сожалению такой никнейм уже существует. Придумайте новый ник.");
-                return;
+            try {
+                if (server.getAuthenticationProvider().userVerification(newNick)) {
+                    sendMessage("К сожалению такой никнейм уже существует. Придумайте новый ник.");
+                    LOGGER.info(String.format("Клиент '%s' ввел команду: '%s' с существующим никнеймом '%s'", getUsername(), CHANGE_NICK, tokens[1]) );
+                    return;
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
+            LOGGER.info(String.format("Клиент '%s' сменил свой ник на: '%s'", getUsername(), tokens[1]) );
             server.getAuthenticationProvider().changeNickname(this.username, newNick);
             username = newNick;
             sendMessage("Вы изменили никнейм на: " + newNick);

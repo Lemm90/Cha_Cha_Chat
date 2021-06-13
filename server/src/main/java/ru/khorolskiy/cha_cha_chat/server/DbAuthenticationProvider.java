@@ -9,7 +9,8 @@ public class DbAuthenticationProvider implements AuthenticationProvider{
 
     @Override
     public String getNicknameByLoginAndPssword(String login, String password) throws SQLException {
-        try ( ResultSet rs = stmt.executeQuery(String.format("select nickname from clients where login = '%s' and password = '%s';", login, password))){
+        String query = String.format("select nickname from clients where login = '%s' and password = '%s';", login, password);
+        try ( ResultSet rs = stmt.executeQuery(query)){
             while (rs.next())
                 return rs.getString("nickname");
         }
@@ -18,14 +19,26 @@ public class DbAuthenticationProvider implements AuthenticationProvider{
 
     @Override
     public void changeNickname(String oldNickname, String newNickname) {
+        String query = String.format("update clients set nickname = '%s' where nickname = '%s';", newNickname, oldNickname);
         try {
-            stmt.executeUpdate(String.format("update clients set nickname = '%s' where nickname = 'oldnickname';", oldNickname, newNickname));
+            stmt.executeUpdate(query);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public static void connect() {
+    @Override
+    public boolean userVerification(String nickname) throws SQLException {
+        String query = String.format("select nickname from clients where nickname = '%s';", nickname);
+        try (ResultSet rs = stmt.executeQuery(query)){
+            if (rs.next()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+        public static void connect() {
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection("jdbc:sqlite:clients.db");

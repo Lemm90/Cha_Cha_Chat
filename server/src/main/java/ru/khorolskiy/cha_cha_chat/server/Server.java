@@ -24,14 +24,13 @@ public class Server {
         this.authenticationProvider = new DbAuthenticationProvider();
         this.authenticationProvider.connect();
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-//            System.out.println("Сервер запущен на порту " + port);
             LOGGER.info(String.format("Серевер запущен на порту: %s\n", port));
             while (true) {
                 System.out.println("Ждем нового клиента..");
                 Socket socket = serverSocket.accept();
-//                System.out.println("Клиент подключился");
-                LOGGER.info("Клиент подключился");
                 new ClientHandler(this, socket);
+                LOGGER.info("Клиент подключился");
+
             }
         } catch (IOException e) {
             LOGGER.error("Клиенту не удалось подключиться");

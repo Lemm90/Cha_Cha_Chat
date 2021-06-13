@@ -23,5 +23,10 @@
         <Logger name="ru.khorolskiy.cha_cha_chat.server" level="trace" />
             <AppenderRef ref="STDOUT" />
         <Logger name="ru.khorolskiy.cha_cha_chat" level="error" />
+            <AppenderRef ref="STDOUT" />
+            <AppenderRef ref="File" />
+        <Logger name="ru.khorolskiy.cha_cha_chat" level="info" />
+        <AppenderRef ref="STDOUT" />
+        <AppenderRef ref="File" />
     </Loggers>
 </Configuration>
