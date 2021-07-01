@@ -1,8 +1,12 @@
 package ru.khorolskiy.cha_cha_chat.server;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.*;
 
 public class DbAuthenticationProvider implements AuthenticationProvider{
+    public static final Logger LOGGER = LogManager.getLogger(DbAuthenticationProvider.class);
     private static Connection connection;
     private static Statement stmt;
 
@@ -36,6 +40,15 @@ public class DbAuthenticationProvider implements AuthenticationProvider{
             }
         }
         return false;
+    }
+    @Override
+    public void creatingNewUser(String newUsername, String newPassword, String newNickname) {
+        String query = String.format("insert into clients (login, password, nickname) values ('%s', '%s', '%s');", newUsername, newPassword, newNickname);
+        try {
+            stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
         public static void connect() {

@@ -7,4 +7,5 @@ public interface AuthenticationProvider {
     String getNicknameByLoginAndPssword(String login, String password) throws SQLException;
     void changeNickname(String oldNickname, String newNickname);
     boolean userVerification(String nickname) throws SQLException;
+    void creatingNewUser(String newUsername, String newPassword, String newNickname);
 }

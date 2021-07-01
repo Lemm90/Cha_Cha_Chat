@@ -61,6 +61,20 @@ public class ClientHandler {
                         server.subscribe(this);
                         break;
                     }
+
+                    // /createUser Bob 100500 SuperBob
+                    if(msg.startsWith("/createUser ")){
+                        String[] tokens = msg.split("\\s+");
+                        // todo сделать проверки в БД на уникальность записей
+                        if(server.getAuthenticationProvider().userVerification(tokens[1])){
+                            System.out.println("такой есть");
+                            break;
+                        }
+                        server.getAuthenticationProvider().creatingNewUser(tokens[1], tokens[2], tokens[3]);
+
+                        continue;
+                    }
+
                 }
                 // Цикл общения с клиентом
                 while (true) {
@@ -72,6 +86,7 @@ public class ClientHandler {
                     server.broadcastMessage(username + ": " + msg);
                     numberOfMessage++;
                 }
+
             } catch (IOException | SQLException e) {
                 e.printStackTrace();
             } finally {
@@ -107,7 +122,6 @@ public class ClientHandler {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
 
         if (command.equals(WHATISMYNAME)) {

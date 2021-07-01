@@ -6,6 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -15,8 +18,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+
     @FXML
-    TextField msgField, loginField;
+    TextField msgField, loginField, newUsernameField, newPasswordField, newNicknameField;
 
     @FXML
     PasswordField passwordField;
@@ -25,15 +29,17 @@ public class Controller implements Initializable {
     TextArea msgArea;
 
     @FXML
-    HBox loginPanel, msgPanel;
+    HBox loginPanel, msgPanel, regPanel;
 
     @FXML
     ListView<String> clientsList;
 
+    public static final Logger LOGGER = LogManager.getLogger(Controller.class);
     private Socket socket;
     private DataInputStream in;
     private DataOutputStream out;
     private String username;
+    private boolean isRegistration = false;
     private static final String EXIT = "/exit";
 
     public void setUsername(String username)  {
@@ -45,6 +51,8 @@ public class Controller implements Initializable {
         msgPanel.setManaged(!usernameIsNull);
         clientsList.setVisible(!usernameIsNull);
         clientsList.setManaged(!usernameIsNull);
+        regPanel.setVisible(isRegistration);
+        regPanel.setManaged(isRegistration);
         }
 
     @Override
@@ -158,7 +166,7 @@ public class Controller implements Initializable {
                 "/who_am_i - Ваше имя \n " +
                 "/w 'username' - личное сообщение \n " +
                 "/exit - выход \n" +
-                "/change_nick 'your new username' - сменить никнейм");
+                "/change_nick 'your new username' - сменить никнейм\n");
     }
 
     public void logout(ActionEvent actionEvent) throws IOException {
@@ -174,5 +182,49 @@ public class Controller implements Initializable {
         alert.setTitle("Cha-cha-Chat");
         alert.setHeaderText(null);
         alert.showAndWait();
+    }
+
+    private void showCompletedAlert(String message){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(message);
+        alert.setTitle("Cha-cha-Chat");
+        alert.setHeaderText(null);
+        alert.showAndWait();
+    }
+
+    //todo надо что-то с этим придумать, что б красиво было
+    public void register(ActionEvent actionEvent) {
+        loginPanel.setVisible(false);
+        loginPanel.setManaged(false);
+        msgPanel.setVisible(false);
+        msgPanel.setManaged(false);
+        clientsList.setVisible(false);
+        clientsList.setManaged(false);
+        regPanel.setVisible(true);
+        regPanel.setManaged(true);
+    }
+
+    public void create(ActionEvent actionEvent) {
+
+        if(newUsernameField.getText().isEmpty() || newPasswordField.getText().isEmpty() || newNicknameField.getText().isEmpty()){
+            showErrorAlert("Все поля должны быть заполнены");
+        }
+        if (socket == null || socket.isClosed()) {
+            connect();
+        }
+        String newUser = String.format("/createUser %s %s %s", newUsernameField.getText(), newPasswordField.getText(), newNicknameField.getText());
+        try {
+            out.writeUTF(newUser);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        newNicknameField.clear();
+        newPasswordField.clear();
+        newUsernameField.clear();
+        isRegistration = false;
+        setUsername(null);
+        showCompletedAlert("Регистрация прошла успешно");
+
+
     }
 }

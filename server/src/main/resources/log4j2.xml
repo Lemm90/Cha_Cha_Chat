@@ -28,5 +28,7 @@
         <Logger name="ru.khorolskiy.cha_cha_chat" level="info" />
         <AppenderRef ref="STDOUT" />
         <AppenderRef ref="File" />
+        <Logger name="ru.khorolskiy.cha_cha_chat" level="debug" />
+        <AppenderRef ref="STDOUT" />
     </Loggers>
 </Configuration>
