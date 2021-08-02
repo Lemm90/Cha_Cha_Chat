@@ -1,5 +1,6 @@
 package ru.khorolskiy.cha_cha_chat.server;
 
+import javafx.scene.control.Alert;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -41,14 +42,45 @@ public class DbAuthenticationProvider implements AuthenticationProvider{
         }
         return false;
     }
+
     @Override
-    public void creatingNewUser(String newUsername, String newPassword, String newNickname) {
+    public void creatingNewUser(String newUsername, String newPassword, String newNickname) throws SQLException {
         String query = String.format("insert into clients (login, password, nickname) values ('%s', '%s', '%s');", newUsername, newPassword, newNickname);
         try {
             stmt.executeUpdate(query);
-        } catch (SQLException e) {
-            e.printStackTrace();
+            } catch (SQLException e) {
+              e.printStackTrace();
+              }
+    }
+
+    public boolean checkingNewUsername(String newUsername) {
+        String query = String.format("select nickname from clients where login = '%s';", newUsername);
+        try (ResultSet rs = stmt.executeQuery(query)){
+            LOGGER.debug("Отправка запроса к БД: " + query);
+            if (rs.next()){
+                LOGGER.debug("/createUser_failed / Данное имя " + newUsername + " не уникально в БД");
+                return true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
+        LOGGER.debug("/createUser_ok (checkingNewUsername)");
+        return false;
+    }
+
+    public boolean checkingNewNickname(String newNickname) {
+        String query = String.format("select nickname from clients where nickname = '%s';", newNickname);
+        try (ResultSet rs = stmt.executeQuery(query)){
+            LOGGER.debug("Отправка запроса к БД: " + query);
+            if (rs.next()){
+                LOGGER.debug("/createUser_failed / Данный никнейм " + newNickname + " не уникален в БД");
+                return true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        LOGGER.debug("/createUser_ok (checkingNewNickname)");
+        return false;
     }
 
         public static void connect() {
@@ -61,7 +93,6 @@ public class DbAuthenticationProvider implements AuthenticationProvider{
             throw new RuntimeException("Невозможно подключиться к БД");
         }
     }
-
 
     public static void disconnect(){
         try {

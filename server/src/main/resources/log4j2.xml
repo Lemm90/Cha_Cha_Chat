@@ -20,7 +20,7 @@
             <AppenderRef ref="STDOUT" />
             <AppenderRef ref="File" />
         </Root>
-        <Logger name="ru.khorolskiy.cha_cha_chat.server" level="trace" />
+        <Logger name="ru.khorolskiy.cha_cha_chat" level="trace" />
             <AppenderRef ref="STDOUT" />
         <Logger name="ru.khorolskiy.cha_cha_chat" level="error" />
             <AppenderRef ref="STDOUT" />

@@ -6,9 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -34,15 +31,17 @@ public class Controller implements Initializable {
     @FXML
     ListView<String> clientsList;
 
-    public static final Logger LOGGER = LogManager.getLogger(Controller.class);
     private Socket socket;
     private DataInputStream in;
     private DataOutputStream out;
     private String username;
-    private boolean isRegistration = false;
+    private boolean isRegistration;
+    private boolean createUsername = false;
+    private boolean createNickname = false;
     private static final String EXIT = "/exit";
 
-    public void setUsername(String username)  {
+
+    public void setUsername(String username) {
         this.username = username;
         boolean usernameIsNull = username == null;
         loginPanel.setVisible(usernameIsNull);
@@ -53,7 +52,7 @@ public class Controller implements Initializable {
         clientsList.setManaged(!usernameIsNull);
         regPanel.setVisible(isRegistration);
         regPanel.setManaged(isRegistration);
-        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -81,7 +80,7 @@ public class Controller implements Initializable {
 
     public void connect() {
         try {
-            socket = new Socket("localhost", 8189);
+            socket = new Socket("localhost", 8789);
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
             HistoryMessage historyMessage = new HistoryMessage();
@@ -90,6 +89,7 @@ public class Controller implements Initializable {
                     // Цикл авторизации
                     while (true) {
                         String msg = in.readUTF();
+                        System.out.println("Пришло в контроллер: " + msg);
                         if (msg.startsWith("/login_ok ")) {
                             setUsername(msg.split("\\s")[1]);
                             msgArea.clear();
@@ -97,26 +97,35 @@ public class Controller implements Initializable {
                             msgArea.clear();
                             msgArea.appendText(historyMessage.outputHistory());
                             break;
-                        }
-                        if (msg.startsWith("/login_failed ")) {
-                            String cause = msg.split("\\s", 2)[1];
-                            msgArea.appendText(cause + "\n");
+                        } else if (msg.startsWith("/createUser_ok")) {
+                            createUsername = true;
+                            createNickname = true;
+                            break;
+                        } else if (msg.startsWith("/createUser_failed")) {
+                            createUsername = false;
+                            break;
+                        } else if (msg.startsWith("/createNickname_failed")) {
+                            createUsername = true;
+                            createNickname = false;
+                            break;
                         }
                     }
+
+
                     // Цикл общения
                     while (true) {
                         String msg = in.readUTF();
-                        if(msg.startsWith("/")) {
+                        if (msg.startsWith("/")) {
                             if (msg.equals(EXIT)) {
                                 msgArea.clear();
                                 loginField.clear();
                                 socket.close();
                                 continue;
                             }
-                            if(msg.startsWith("/clients_list ")){
+                            if (msg.startsWith("/clients_list ")) {
                                 String[] tokens = msg.split("\\s");
 
-                                Platform.runLater(()-> {
+                                Platform.runLater(() -> {
                                     clientsList.getItems().clear();
                                     for (int i = 1; i < tokens.length; i++) {
                                         clientsList.getItems().add(tokens[i]);
@@ -128,6 +137,7 @@ public class Controller implements Initializable {
                         msgArea.appendText(msg + "\n");
                         historyMessage.writingMessagesToHistory(msg);
                     }
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 } finally {
@@ -176,7 +186,7 @@ public class Controller implements Initializable {
         socket.close();
     }
 
-    private void showErrorAlert(String message){
+    private void showErrorAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setContentText(message);
         alert.setTitle("Cha-cha-Chat");
@@ -184,7 +194,7 @@ public class Controller implements Initializable {
         alert.showAndWait();
     }
 
-    private void showCompletedAlert(String message){
+    private void showCompletedAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(message);
         alert.setTitle("Cha-cha-Chat");
@@ -206,7 +216,7 @@ public class Controller implements Initializable {
 
     public void create(ActionEvent actionEvent) {
 
-        if(newUsernameField.getText().isEmpty() || newPasswordField.getText().isEmpty() || newNicknameField.getText().isEmpty()){
+        if (newUsernameField.getText().isEmpty() || newPasswordField.getText().isEmpty() || newNicknameField.getText().isEmpty()) {
             showErrorAlert("Все поля должны быть заполнены");
         }
         if (socket == null || socket.isClosed()) {
@@ -218,13 +228,40 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        registrationAnnouncement();
+    }
+
+    public void clearingLoginPanel() {
+        loginField.clear();
+        passwordField.clear();
+        newNicknameField.clear();
+    }
+
+    public void clearingRegPanel() {
         newNicknameField.clear();
         newPasswordField.clear();
         newUsernameField.clear();
-        isRegistration = false;
-        setUsername(null);
-        showCompletedAlert("Регистрация прошла успешно");
-
-
     }
+
+
+    public void registrationAnnouncement() {
+        if (createNickname && createUsername) {
+            showCompletedAlert("Регистрация прошла успешно");
+            setUsername(null);
+            clearingLoginPanel();
+        } else if (!createUsername) {
+            showErrorAlert("К сожалению такое имя уже существует. Придумайте новое имя.");
+            clearingRegPanel();
+        } else if (!createNickname) {
+            showErrorAlert("К сожалению такой никнейм уже существует. Придумайте новый ник.");
+            clearingRegPanel();
+        }
+    }
+
 }

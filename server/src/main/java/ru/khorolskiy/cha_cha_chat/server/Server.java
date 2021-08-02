@@ -30,7 +30,6 @@ public class Server {
                 Socket socket = serverSocket.accept();
                 new ClientHandler(this, socket);
                 LOGGER.info("Клиент подключился");
-
             }
         } catch (IOException e) {
             LOGGER.error("Клиенту не удалось подключиться");

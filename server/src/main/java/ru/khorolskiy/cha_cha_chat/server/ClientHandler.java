@@ -64,17 +64,27 @@ public class ClientHandler {
 
                     // /createUser Bob 100500 SuperBob
                     if(msg.startsWith("/createUser ")){
+                        LOGGER.debug("На сервер пришло сообщение: " + msg);
                         String[] tokens = msg.split("\\s+");
-                        // todo сделать проверки в БД на уникальность записей
-                        if(server.getAuthenticationProvider().userVerification(tokens[1])){
-                            System.out.println("такой есть");
+                        if(server.getAuthenticationProvider().checkingNewUsername(tokens[1]) == false){
+                            if(server.getAuthenticationProvider().checkingNewNickname(tokens[3]) == false){
+                                server.getAuthenticationProvider().creatingNewUser(tokens[1],tokens[2],tokens[3]);
+                                String outMsg = String.format("/createUser_ok %s", tokens[1])  ;
+                                out.writeUTF(outMsg);
+                                LOGGER.debug("Отправка в Controller: " + outMsg);
+                                break;
+                            }
+                            String outMsg = "/createNickname_failed";
+                            out.writeUTF(outMsg);
+                            LOGGER.debug("Отправка в Controller: " + outMsg);
                             break;
                         }
-                        server.getAuthenticationProvider().creatingNewUser(tokens[1], tokens[2], tokens[3]);
+                        String outMsg = "/createUser_failed";
+                        out.writeUTF(outMsg);
+                        LOGGER.debug("Отправка в Controller: " + outMsg);
+                        break;
 
-                        continue;
                     }
-
                 }
                 // Цикл общения с клиентом
                 while (true) {
