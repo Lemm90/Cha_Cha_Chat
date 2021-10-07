@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     @FXML
-    TextField msgField, loginField, newUsernameField, newPasswordField, newNicknameField;
+    TextField msgField, loginField, newUsernameField, newPasswordField, newNicknameField, changeNickField;
 
     @FXML
     PasswordField passwordField;
@@ -26,7 +26,7 @@ public class Controller implements Initializable {
     TextArea msgArea;
 
     @FXML
-    HBox loginPanel, msgPanel, regPanel;
+    HBox loginPanel, msgPanel, regPanel, changeNickPanel;
 
     @FXML
     ListView<String> clientsList;
@@ -76,6 +76,7 @@ public class Controller implements Initializable {
             e.printStackTrace();
             return;
         }
+        clearingLoginPanel();
     }
 
     public void connect() {
@@ -89,7 +90,6 @@ public class Controller implements Initializable {
                     // Цикл авторизации
                     while (true) {
                         String msg = in.readUTF();
-                        System.out.println("Пришло в контроллер: " + msg);
                         if (msg.startsWith("/login_ok ")) {
                             setUsername(msg.split("\\s")[1]);
                             msgArea.clear();
@@ -108,9 +108,12 @@ public class Controller implements Initializable {
                             createUsername = true;
                             createNickname = false;
                             break;
+                        } else if(msg.startsWith("/login_failed")){
+                            String[] tokens = msg.split(" ", 2);
+                            System.out.println(tokens[1]);
+                            showErrorAlert(" ");
                         }
                     }
-
 
                     // Цикл общения
                     while (true) {
@@ -181,8 +184,6 @@ public class Controller implements Initializable {
 
     public void logout(ActionEvent actionEvent) throws IOException {
         msgArea.clear();
-        loginField.clear();
-        passwordField.clear();
         socket.close();
     }
 
@@ -240,7 +241,6 @@ public class Controller implements Initializable {
     public void clearingLoginPanel() {
         loginField.clear();
         passwordField.clear();
-        newNicknameField.clear();
     }
 
     public void clearingRegPanel() {
@@ -254,7 +254,7 @@ public class Controller implements Initializable {
         if (createNickname && createUsername) {
             showCompletedAlert("Регистрация прошла успешно");
             setUsername(null);
-            clearingLoginPanel();
+            clearingRegPanel();
         } else if (!createUsername) {
             showErrorAlert("К сожалению такое имя уже существует. Придумайте новое имя.");
             clearingRegPanel();

@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 
-public class DbAuthenticationProvider implements AuthenticationProvider{
+public class DbAuthenticationProvider implements AuthenticationProvider {
     public static final Logger LOGGER = LogManager.getLogger(DbAuthenticationProvider.class);
     private static Connection connection;
     private static Statement stmt;
@@ -15,7 +15,7 @@ public class DbAuthenticationProvider implements AuthenticationProvider{
     @Override
     public String getNicknameByLoginAndPssword(String login, String password) throws SQLException {
         String query = String.format("select nickname from clients where login = '%s' and password = '%s';", login, password);
-        try ( ResultSet rs = stmt.executeQuery(query)){
+        try (ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next())
                 return rs.getString("nickname");
         }
@@ -35,8 +35,8 @@ public class DbAuthenticationProvider implements AuthenticationProvider{
     @Override
     public boolean userVerification(String nickname) throws SQLException {
         String query = String.format("select nickname from clients where nickname = '%s';", nickname);
-        try (ResultSet rs = stmt.executeQuery(query)){
-            if (rs.next()){
+        try (ResultSet rs = stmt.executeQuery(query)) {
+            if (rs.next()) {
                 return true;
             }
         }
@@ -48,16 +48,16 @@ public class DbAuthenticationProvider implements AuthenticationProvider{
         String query = String.format("insert into clients (login, password, nickname) values ('%s', '%s', '%s');", newUsername, newPassword, newNickname);
         try {
             stmt.executeUpdate(query);
-            } catch (SQLException e) {
-              e.printStackTrace();
-              }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean checkingNewUsername(String newUsername) {
         String query = String.format("select nickname from clients where login = '%s';", newUsername);
-        try (ResultSet rs = stmt.executeQuery(query)){
+        try (ResultSet rs = stmt.executeQuery(query)) {
             LOGGER.debug("Отправка запроса к БД: " + query);
-            if (rs.next()){
+            if (rs.next()) {
                 LOGGER.debug("/createUser_failed / Данное имя " + newUsername + " не уникально в БД");
                 return true;
             }
@@ -70,9 +70,9 @@ public class DbAuthenticationProvider implements AuthenticationProvider{
 
     public boolean checkingNewNickname(String newNickname) {
         String query = String.format("select nickname from clients where nickname = '%s';", newNickname);
-        try (ResultSet rs = stmt.executeQuery(query)){
+        try (ResultSet rs = stmt.executeQuery(query)) {
             LOGGER.debug("Отправка запроса к БД: " + query);
-            if (rs.next()){
+            if (rs.next()) {
                 LOGGER.debug("/createUser_failed / Данный никнейм " + newNickname + " не уникален в БД");
                 return true;
             }
@@ -83,7 +83,7 @@ public class DbAuthenticationProvider implements AuthenticationProvider{
         return false;
     }
 
-        public static void connect() {
+    public static void connect() {
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection("jdbc:sqlite:clients.db");
@@ -94,16 +94,16 @@ public class DbAuthenticationProvider implements AuthenticationProvider{
         }
     }
 
-    public static void disconnect(){
+    public static void disconnect() {
         try {
-            if(stmt != null){
+            if (stmt != null) {
                 stmt.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        if(connection != null){
+        if (connection != null) {
             try {
                 connection.close();
             } catch (SQLException e) {

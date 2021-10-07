@@ -1,33 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="center" prefWidth="675.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.khorolskiy.cha_cha_chat.client.Controller">
-    <HBox fx:id="loginPanel" prefHeight="9.0" prefWidth="688.0">
-        <TextField fx:id="loginField" prefHeight="27.0" prefWidth="201.0" promptText="Введите имя пользователя" HBox.hgrow="ALWAYS" />
-        <PasswordField fx:id="passwordField" promptText="Укажите пароль" HBox.hgrow="ALWAYS" />
-        <Button onAction="#login" text="Войти" textFill="#088626" />
-        <Button onAction="#register" text="Зарегистрироваться" />
-    </HBox>
-
-    <HBox fx:id="regPanel">
-        <TextField fx:id="newUsernameField" prefHeight="27.0" prefWidth="185.0" promptText="Введите имя пользователя" HBox.hgrow="ALWAYS" />
-        <TextField fx:id="newPasswordField" prefHeight="27.0" prefWidth="160.0" promptText="Введите пароль" HBox.hgrow="ALWAYS" />
-        <TextField fx:id="newNicknameField" prefHeight="27.0" prefWidth="160.0" promptText="Введите никнейм" HBox.hgrow="ALWAYS" />
-        <Button onAction="#create" text="Создать" />
-    </HBox>
-
-    <HBox VBox.vgrow="ALWAYS">
-    <TextArea fx:id="msgArea" editable="false" prefHeight="393.0" prefWidth="452.0" wrapText="true" HBox.hgrow="ALWAYS" />
-        <ListView fx:id="clientsList" maxWidth="150" minWidth="150" prefWidth="150" />
-    </HBox>
-
-    <HBox fx:id="msgPanel">
-        <Button onAction="#logout" prefHeight="27.0" prefWidth="60.0" text="logout" textFill="#eb2102" />
-        <Button onAction="#sendHelp" text="help" />
-        <TextField fx:id="msgField" onAction="#sendMsg" promptText="Введите сообщение" HBox.hgrow="ALWAYS" />
-        <Button onAction="#sendMsg" text="Отправить" />
-    </HBox>
+<VBox alignment="center" prefWidth="675.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.khorolskiy.cha_cha_chat.client.Controller">
+   <children>
+       <HBox fx:id="loginPanel" prefHeight="0.0" prefWidth="675.0">
+          <children>
+              <TextField fx:id="loginField" prefHeight="27.0" prefWidth="201.0" promptText="Введите имя пользователя" HBox.hgrow="ALWAYS" />
+              <PasswordField fx:id="passwordField" promptText="Укажите пароль" HBox.hgrow="ALWAYS" />
+              <Button onAction="#login" text="Войти" textFill="#088626" />
+              <Button onAction="#register" text="Зарегистрироваться" />
+          </children>
+       </HBox>
+   
+       <HBox fx:id="regPanel">
+      <children>
+              <TextField fx:id="newUsernameField" prefHeight="27.0" prefWidth="185.0" promptText="Введите имя пользователя" HBox.hgrow="ALWAYS" />
+              <TextField fx:id="newPasswordField" prefHeight="27.0" prefWidth="160.0" promptText="Введите пароль" HBox.hgrow="ALWAYS" />
+              <TextField fx:id="newNicknameField" prefHeight="27.0" prefWidth="160.0" promptText="Введите никнейм" HBox.hgrow="ALWAYS" />
+              <Button onAction="#create" text="Создать" />
+      </children>
+       </HBox>
+   
+       <HBox VBox.vgrow="ALWAYS">
+      <children>
+          <TextArea fx:id="msgArea" editable="false" prefHeight="349.0" prefWidth="525.0" wrapText="true" HBox.hgrow="ALWAYS" />
+              <ListView fx:id="clientsList" maxWidth="150" minWidth="150" prefWidth="150" />
+      </children>
+       </HBox>
+   
+       <HBox fx:id="msgPanel">
+      <children>
+              <Button onAction="#logout" prefHeight="27.0" prefWidth="60.0" text="logout" textFill="#eb2102" />
+              <Button onAction="#sendHelp" text="help" textFill="darkgreen" />
+              <TextField fx:id="msgField" promptText="Введите сообщение" HBox.hgrow="ALWAYS" />
+              <Button onAction="#sendMsg" text="Отправить" />
+      </children>
+       </HBox>
+   </children>
 
 </VBox>
