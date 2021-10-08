@@ -201,3 +201,40 @@ INFO  07-10-2021 13:50:32 [main] ru.khorolskiy.cha_cha_chat.server.Server (Serve
 
 INFO  07-10-2021 13:50:40 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
 INFO  07-10-2021 13:50:51 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент sdc закрыл соединение
+INFO  08-10-2021 23:36:09 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  08-10-2021 23:36:24 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  08-10-2021 23:36:40 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент Super_Peter закрыл соединение
+INFO  08-10-2021 23:49:27 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  08-10-2021 23:49:42 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  08-10-2021 23:51:12 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 08-10-2021 23:51:12 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:67) - На сервер пришло сообщение: /createUser Pkh dfh dfg
+DEBUG 08-10-2021 23:51:12 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select nickname from clients where login = 'Pkh';
+DEBUG 08-10-2021 23:51:12 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:67) - /createUser_ok (checkingNewUsername)
+DEBUG 08-10-2021 23:51:12 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:74) - Отправка запроса к БД: select nickname from clients where nickname = 'dfg';
+DEBUG 08-10-2021 23:51:12 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:82) - /createUser_ok (checkingNewNickname)
+DEBUG 08-10-2021 23:51:12 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:74) - Отправка в Controller: /createUser_ok Pkh
+INFO  08-10-2021 23:54:08 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  08-10-2021 23:54:27 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  08-10-2021 23:56:34 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  08-10-2021 23:56:34 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент null закрыл соединение
+INFO  08-10-2021 23:56:42 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  08-10-2021 23:56:42 [Thread-3] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент null закрыл соединение
+INFO  08-10-2021 23:56:53 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  08-10-2021 23:56:53 [Thread-4] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент null закрыл соединение
+INFO  08-10-2021 23:57:07 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  08-10-2021 23:57:22 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  08-10-2021 23:58:15 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  08-10-2021 23:59:14 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  08-10-2021 23:59:14 [Thread-3] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент null закрыл соединение
+INFO  08-10-2021 23:59:28 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  08-10-2021 23:59:41 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  09-10-2021 00:00:48 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  09-10-2021 00:01:07 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  09-10-2021 00:01:07 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент null закрыл соединение
+INFO  09-10-2021 00:01:15 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился

@@ -52,6 +52,8 @@ public class Controller implements Initializable {
         clientsList.setManaged(!usernameIsNull);
         regPanel.setVisible(isRegistration);
         regPanel.setManaged(isRegistration);
+        changeNickPanel.setVisible(false);
+        changeNickPanel.setManaged(false);
     }
 
     @Override
@@ -174,7 +176,7 @@ public class Controller implements Initializable {
         }
     }
 
-    public void sendHelp(ActionEvent actionEvent) {
+    public void buttonHelp(ActionEvent actionEvent) {
         msgArea.appendText(" /stat - количество сообщений \n " +
                 "/who_am_i - Ваше имя \n " +
                 "/w 'username' - личное сообщение \n " +
@@ -182,10 +184,29 @@ public class Controller implements Initializable {
                 "/change_nick 'your new username' - сменить никнейм\n");
     }
 
-    public void logout(ActionEvent actionEvent) throws IOException {
+    public void buttonLogout(ActionEvent actionEvent) throws IOException {
         msgArea.clear();
         socket.close();
     }
+
+    public void buttonChangeNick(ActionEvent actionEvent) {
+        loginPanel.setVisible(false);
+        loginPanel.setManaged(false);
+        msgPanel.setVisible(false);
+        msgPanel.setManaged(false);
+        clientsList.setVisible(false);
+        clientsList.setManaged(false);
+        regPanel.setVisible(false);
+        regPanel.setManaged(false);
+        changeNickPanel.setManaged(true);
+        changeNickPanel.setVisible(true);
+        msgArea.setVisible(false);
+        msgArea.setManaged(false);
+    }
+
+    public void sendChangeNick(ActionEvent actionEvent) {
+    }
+
 
     private void showErrorAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -213,6 +234,8 @@ public class Controller implements Initializable {
         clientsList.setManaged(false);
         regPanel.setVisible(true);
         regPanel.setManaged(true);
+        changeNickPanel.setManaged(false);
+        changeNickPanel.setVisible(false);
     }
 
     public void create(ActionEvent actionEvent) {
@@ -263,5 +286,6 @@ public class Controller implements Initializable {
             clearingRegPanel();
         }
     }
+
 
 }

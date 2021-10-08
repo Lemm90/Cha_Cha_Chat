@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -24,6 +24,14 @@
               <Button onAction="#create" text="Создать" />
       </children>
        </HBox>
+
+       <HBox fx:id="changeNickPanel">
+           <children>
+               <TextField fx:id="changeNickField" prefHeight="27.0" prefWidth="392.0" promptText="Введите имя пользователя" HBox.hgrow="ALWAYS" />
+            <Label prefHeight="19.0" prefWidth="182.0" text="Введите новый никнейм" />
+               <Button onAction="#sendChangeNick" prefHeight="27.0" prefWidth="135.0" text="Отправить" />
+           </children>
+       </HBox>
    
        <HBox VBox.vgrow="ALWAYS">
       <children>
@@ -34,8 +42,9 @@
    
        <HBox fx:id="msgPanel">
       <children>
-              <Button onAction="#logout" prefHeight="27.0" prefWidth="60.0" text="logout" textFill="#eb2102" />
-              <Button onAction="#sendHelp" text="help" textFill="darkgreen" />
+              <Button onAction="#buttonLogout" prefHeight="27.0" prefWidth="60.0" text="logout" textFill="#eb2102" />
+              <Button onAction="#buttonChangeNick" prefHeight="27.0" prefWidth="92.0" text="сменить ник" textFill="#2806e4" />
+              <Button onAction="#buttonHelp" text="помощь" textFill="darkgreen" />
               <TextField fx:id="msgField" promptText="Введите сообщение" HBox.hgrow="ALWAYS" />
               <Button onAction="#sendMsg" text="Отправить" />
       </children>
