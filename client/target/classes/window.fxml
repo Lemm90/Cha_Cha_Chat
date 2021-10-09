@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -9,31 +8,38 @@
    <children>
        <HBox fx:id="loginPanel" prefHeight="0.0" prefWidth="675.0">
           <children>
-              <TextField fx:id="loginField" prefHeight="27.0" prefWidth="201.0" promptText="Введите имя пользователя" HBox.hgrow="ALWAYS" />
+            <Pane prefHeight="27.0" prefWidth="40.0" />
+              <TextField fx:id="loginField" prefHeight="27.0" prefWidth="180.0" promptText="Введите имя пользователя" HBox.hgrow="ALWAYS" />
               <PasswordField fx:id="passwordField" promptText="Укажите пароль" HBox.hgrow="ALWAYS" />
-              <Button onAction="#login" text="Войти" textFill="#088626" />
-              <Button onAction="#register" text="Зарегистрироваться" />
+              <Button onAction="#login" prefHeight="27.0" prefWidth="95.0" text="Войти" textFill="#088626" />
+              <Button onAction="#register" prefHeight="27.0" prefWidth="174.0" text="Зарегистрироваться" />
+            <Pane prefHeight="27.0" prefWidth="40.0" />
           </children>
        </HBox>
    
        <HBox fx:id="regPanel">
       <children>
-              <TextField fx:id="newUsernameField" prefHeight="27.0" prefWidth="185.0" promptText="Введите имя пользователя" HBox.hgrow="ALWAYS" />
-              <TextField fx:id="newPasswordField" prefHeight="27.0" prefWidth="160.0" promptText="Введите пароль" HBox.hgrow="ALWAYS" />
-              <TextField fx:id="newNicknameField" prefHeight="27.0" prefWidth="160.0" promptText="Введите никнейм" HBox.hgrow="ALWAYS" />
-              <Button onAction="#create" text="Создать" />
+            <Pane prefHeight="27.0" prefWidth="40.0" />
+              <TextField fx:id="newUsernameField" prefHeight="27.0" prefWidth="174.0" promptText="Введите имя пользователя" HBox.hgrow="ALWAYS" />
+              <TextField fx:id="newPasswordField" prefHeight="27.0" prefWidth="141.0" promptText="Введите пароль" HBox.hgrow="ALWAYS" />
+              <TextField fx:id="newNicknameField" prefHeight="27.0" prefWidth="143.0" promptText="Введите никнейм" HBox.hgrow="ALWAYS" />
+              <Button onAction="#create" prefHeight="27.0" prefWidth="97.0" text="Создать" />
+            <Pane prefHeight="27.0" prefWidth="40.0" />
       </children>
        </HBox>
 
        <HBox fx:id="changeNickPanel">
            <children>
-               <TextField fx:id="changeNickField" prefHeight="27.0" prefWidth="392.0" promptText="Введите имя пользователя" HBox.hgrow="ALWAYS" />
-            <Label prefHeight="19.0" prefWidth="182.0" text="Введите новый никнейм" />
-               <Button onAction="#sendChangeNick" prefHeight="27.0" prefWidth="135.0" text="Отправить" />
+            <Pane prefHeight="27.0" prefWidth="40.0" />
+               <TextField fx:id="changeNickField" prefHeight="27.0" prefWidth="282.0" promptText="Введите новый Никнейм" HBox.hgrow="ALWAYS" />
+            <Pane prefHeight="27.0" prefWidth="26.0" />
+            <Label prefHeight="19.0" prefWidth="164.0" text="Введите новый Никнейм" />
+               <Button onAction="#sendChangeNick" prefHeight="27.0" prefWidth="113.0" text="Сменить" />
+            <Pane prefHeight="27.0" prefWidth="40.0" />
            </children>
        </HBox>
    
-       <HBox VBox.vgrow="ALWAYS">
+       <HBox fx:id="textPanel" VBox.vgrow="ALWAYS">
       <children>
           <TextArea fx:id="msgArea" editable="false" prefHeight="349.0" prefWidth="525.0" wrapText="true" HBox.hgrow="ALWAYS" />
               <ListView fx:id="clientsList" maxWidth="150" minWidth="150" prefWidth="150" />

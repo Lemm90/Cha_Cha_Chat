@@ -158,17 +158,17 @@ public class ClientHandler {
             String[] tokens = command.split("\\s+");
             if (tokens.length != 2) {
                 sendMessage("Введена некорректная команда");
-                LOGGER.info(String.format("Клиент '%s' ввел неккорректную команду: '%s'", getUsername(), command) );
+                LOGGER.info(String.format("Клиент '%s' ввел неккорректную команду: '%s'", getUsername(), command));
                 return;
             }
             String newNick = tokens[1];
             try {
                 if (server.getAuthenticationProvider().userVerification(newNick)) {
-                    sendMessage("К сожалению такой никнейм уже существует. Придумайте новый ник.");
+                    out.writeUTF("/createNickname_failed");
                     LOGGER.info(String.format("Клиент '%s' ввел команду: '%s' с существующим никнеймом '%s'", getUsername(), CHANGE_NICK, tokens[1]) );
                     return;
                 }
-            } catch (SQLException throwables) {
+            } catch (SQLException | IOException throwables) {
                 throwables.printStackTrace();
             }
             LOGGER.info(String.format("Клиент '%s' сменил свой ник на: '%s'", getUsername(), tokens[1]) );

@@ -26,7 +26,7 @@ public class Controller implements Initializable {
     TextArea msgArea;
 
     @FXML
-    HBox loginPanel, msgPanel, regPanel, changeNickPanel;
+    HBox loginPanel, msgPanel, textPanel, regPanel, changeNickPanel;
 
     @FXML
     ListView<String> clientsList;
@@ -48,8 +48,8 @@ public class Controller implements Initializable {
         loginPanel.setManaged(usernameIsNull);
         msgPanel.setVisible(!usernameIsNull);
         msgPanel.setManaged(!usernameIsNull);
-        clientsList.setVisible(!usernameIsNull);
-        clientsList.setManaged(!usernameIsNull);
+        textPanel.setVisible(!usernameIsNull);
+        textPanel.setManaged(!usernameIsNull);
         regPanel.setVisible(isRegistration);
         regPanel.setManaged(isRegistration);
         changeNickPanel.setVisible(false);
@@ -78,7 +78,6 @@ public class Controller implements Initializable {
             e.printStackTrace();
             return;
         }
-        clearingLoginPanel();
     }
 
     public void connect() {
@@ -185,6 +184,7 @@ public class Controller implements Initializable {
     }
 
     public void buttonLogout(ActionEvent actionEvent) throws IOException {
+        clearingLoginPanel();
         msgArea.clear();
         socket.close();
     }
@@ -194,17 +194,26 @@ public class Controller implements Initializable {
         loginPanel.setManaged(false);
         msgPanel.setVisible(false);
         msgPanel.setManaged(false);
-        clientsList.setVisible(false);
-        clientsList.setManaged(false);
         regPanel.setVisible(false);
         regPanel.setManaged(false);
         changeNickPanel.setManaged(true);
         changeNickPanel.setVisible(true);
-        msgArea.setVisible(false);
-        msgArea.setManaged(false);
+        textPanel.setVisible(false);
+        textPanel.setManaged(false);
     }
 
-    public void sendChangeNick(ActionEvent actionEvent) {
+    public void sendChangeNick(ActionEvent actionEvent) throws IOException {
+        String newNickname = changeNickField.getText();
+        if(newNickname.isEmpty()){
+            showErrorAlert("Все поля должны быть заполнены");
+        } else {
+            if(!createNickname){
+                showErrorAlert("Данный Никнейм уже занят.\nПридумайте новый ник");
+            }
+            out.writeUTF(String.format("/change_nick %s", newNickname));
+            setUsername(newNickname);
+        }
+
     }
 
 
@@ -230,8 +239,8 @@ public class Controller implements Initializable {
         loginPanel.setManaged(false);
         msgPanel.setVisible(false);
         msgPanel.setManaged(false);
-        clientsList.setVisible(false);
-        clientsList.setManaged(false);
+        textPanel.setVisible(false);
+        textPanel.setManaged(false);
         regPanel.setVisible(true);
         regPanel.setManaged(true);
         changeNickPanel.setManaged(false);
