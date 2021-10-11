@@ -73,7 +73,7 @@ public class Controller implements Initializable {
         }
 
         try {
-            out.writeUTF("/login " + loginField.getText() + " " + passwordField.getText());
+            out.writeUTF(String.format("/login %s %s", loginField.getText(), passwordField.getText()));
         } catch (IOException e) {
             e.printStackTrace();
             return;
@@ -167,6 +167,12 @@ public class Controller implements Initializable {
     public void disconnect() {
         setUsername(null);
         try {
+            if(in != null){
+                in.close();
+            }
+            if(out != null){
+                out.close();
+            }
             if (socket != null) {
                 socket.close();
             }
@@ -254,20 +260,17 @@ public class Controller implements Initializable {
         }
         if (socket == null || socket.isClosed()) {
             connect();
-        }
-        String newUser = String.format("/createUser %s %s %s", newUsernameField.getText(), newPasswordField.getText(), newNicknameField.getText());
-        try {
-            out.writeUTF(newUser);
-        } catch (IOException e) {
-            e.printStackTrace();
+            String newUser = String.format("/createUser %s %s %s", newUsernameField.getText(), newPasswordField.getText(), newNicknameField.getText());
+            try {
+                out.writeUTF(newUser);
+                Thread.sleep(100);
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+            registrationAnnouncement();
+            disconnect();
         }
 
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        registrationAnnouncement();
     }
 
     public void clearingLoginPanel() {

@@ -54,7 +54,7 @@ public class DbAuthenticationProvider implements AuthenticationProvider {
     }
 
     public boolean checkingNewUsername(String newUsername) {
-        String query = String.format("select nickname from clients where login = '%s';", newUsername);
+        String query = String.format("select login from clients where login = '%s';", newUsername);
         try (ResultSet rs = stmt.executeQuery(query)) {
             LOGGER.debug("Отправка запроса к БД: " + query);
             if (rs.next()) {

@@ -362,3 +362,60 @@ INFO  09-10-2021 17:21:42 [main] ru.khorolskiy.cha_cha_chat.server.Server (Serve
 
 INFO  09-10-2021 17:21:58 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
 INFO  09-10-2021 17:22:53 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:168) - Клиент 'Super_Peter' ввел команду: '/change_nick' с существующим никнеймом 'MegaJack'
+INFO  10-10-2021 15:57:58 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  10-10-2021 15:58:20 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 10-10-2021 15:58:20 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:67) - На сервер пришло сообщение: /createUser cvb cvb bvcxz
+DEBUG 10-10-2021 15:58:20 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select nickname from clients where login = 'cvb';
+DEBUG 10-10-2021 15:58:20 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:67) - /createUser_ok (checkingNewUsername)
+DEBUG 10-10-2021 15:58:20 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:74) - Отправка запроса к БД: select nickname from clients where nickname = 'bvcxz';
+DEBUG 10-10-2021 15:58:20 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:82) - /createUser_ok (checkingNewNickname)
+DEBUG 10-10-2021 15:58:20 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:74) - Отправка в Controller: /createUser_ok cvb
+INFO  10-10-2021 16:02:24 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  10-10-2021 16:02:37 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 10-10-2021 16:02:37 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:67) - На сервер пришло сообщение: /createUser asd asd asd
+DEBUG 10-10-2021 16:02:37 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select nickname from clients where login = 'asd';
+DEBUG 10-10-2021 16:02:37 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:67) - /createUser_ok (checkingNewUsername)
+DEBUG 10-10-2021 16:02:37 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:74) - Отправка запроса к БД: select nickname from clients where nickname = 'asd';
+DEBUG 10-10-2021 16:02:37 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:82) - /createUser_ok (checkingNewNickname)
+DEBUG 10-10-2021 16:02:37 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:74) - Отправка в Controller: /createUser_ok asd
+INFO  10-10-2021 16:08:26 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  10-10-2021 16:08:49 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  10-10-2021 16:09:00 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент Super_Peter закрыл соединение
+INFO  10-10-2021 16:09:59 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 10-10-2021 16:09:59 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:67) - На сервер пришло сообщение: /createUser l m m
+DEBUG 10-10-2021 16:09:59 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select login from clients where login = 'l';
+DEBUG 10-10-2021 16:09:59 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:67) - /createUser_ok (checkingNewUsername)
+DEBUG 10-10-2021 16:09:59 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:74) - Отправка запроса к БД: select nickname from clients where nickname = 'm';
+DEBUG 10-10-2021 16:09:59 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:82) - /createUser_ok (checkingNewNickname)
+DEBUG 10-10-2021 16:09:59 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:74) - Отправка в Controller: /createUser_ok l
+INFO  10-10-2021 16:12:47 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  10-10-2021 16:12:59 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  10-10-2021 16:20:31 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  10-10-2021 16:21:31 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  10-10-2021 16:22:26 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  10-10-2021 16:22:43 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 10-10-2021 16:22:43 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:67) - На сервер пришло сообщение: /createUser asdddd asdddd asdddd
+DEBUG 10-10-2021 16:22:43 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select login from clients where login = 'asdddd';
+DEBUG 10-10-2021 16:22:43 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:67) - /createUser_ok (checkingNewUsername)
+DEBUG 10-10-2021 16:22:43 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:74) - Отправка запроса к БД: select nickname from clients where nickname = 'asdddd';
+DEBUG 10-10-2021 16:22:43 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:82) - /createUser_ok (checkingNewNickname)
+DEBUG 10-10-2021 16:22:43 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:74) - Отправка в Controller: /createUser_ok asdddd
+INFO  10-10-2021 16:22:44 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент null закрыл соединение
+INFO  10-10-2021 16:22:50 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  10-10-2021 16:29:52 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  10-10-2021 16:30:08 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 10-10-2021 16:30:08 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:67) - На сервер пришло сообщение: /createUser mnf mnf mnf
+DEBUG 10-10-2021 16:30:08 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select login from clients where login = 'mnf';
+DEBUG 10-10-2021 16:30:08 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:67) - /createUser_ok (checkingNewUsername)
+DEBUG 10-10-2021 16:30:08 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:74) - Отправка запроса к БД: select nickname from clients where nickname = 'mnf';
+DEBUG 10-10-2021 16:30:08 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:82) - /createUser_ok (checkingNewNickname)
+DEBUG 10-10-2021 16:30:08 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:74) - Отправка в Controller: /createUser_ok mnf
+INFO  10-10-2021 16:30:09 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент null закрыл соединение
