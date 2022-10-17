@@ -419,3 +419,209 @@ DEBUG 10-10-2021 16:30:08 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthent
 DEBUG 10-10-2021 16:30:08 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:82) - /createUser_ok (checkingNewNickname)
 DEBUG 10-10-2021 16:30:08 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:74) - Отправка в Controller: /createUser_ok mnf
 INFO  10-10-2021 16:30:09 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент null закрыл соединение
+INFO  08-08-2022 21:02:04 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  08-08-2022 21:02:29 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  08-08-2022 21:02:29 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент null закрыл соединение
+INFO  08-08-2022 21:06:45 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  08-08-2022 21:08:26 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 17:30:44 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 17:31:03 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 17:31:03 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 17:32:10 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 17:32:10 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 17:45:55 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 17:47:04 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 17:47:15 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 17:47:15 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:186) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 17:56:28 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 17:56:45 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 17:56:45 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:188) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 21:10:19 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:11:49 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:12:03 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:12:03 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 21:12:38 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:12:52 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:12:52 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 21:13:30 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:13:42 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:13:42 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 21:19:59 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:20:12 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:20:12 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 21:21:46 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:21:59 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:21:59 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 21:22:42 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:22:57 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:22:57 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 21:24:55 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:26:00 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:26:11 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:26:11 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 21:27:04 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:27:04 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 21:30:19 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:30:29 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:30:44 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 21:30:52 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:32:31 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:32:42 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:33:31 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 21:33:52 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:37:26 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:43:02 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:43:18 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 14-10-2022 21:43:18 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:68) - На сервер пришло сообщение: /createUser sdcwe 100500 scww
+DEBUG 14-10-2022 21:43:18 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select login from clients where login = 'sdcwe';
+DEBUG 14-10-2022 21:43:18 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:67) - /createUser_ok (checkingNewUsername)
+DEBUG 14-10-2022 21:43:18 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:74) - Отправка запроса к БД: select nickname from clients where nickname = 'scww';
+DEBUG 14-10-2022 21:43:18 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:82) - /createUser_ok (checkingNewNickname)
+DEBUG 14-10-2022 21:43:18 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:75) - Отправка в Controller: /createUser_ok sdcwe
+INFO  14-10-2022 21:43:20 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент null закрыл соединение
+INFO  14-10-2022 21:44:14 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:45:48 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 21:46:10 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 14-10-2022 21:46:10 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:68) - На сервер пришло сообщение: /createUser Peter 100500 we
+DEBUG 14-10-2022 21:46:10 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select login from clients where login = 'Peter';
+DEBUG 14-10-2022 21:46:10 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:61) - /createUser_failed / Данное имя Peter не уникально в БД
+DEBUG 14-10-2022 21:46:10 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:85) - Отправка в Controller: /createUser_failed
+INFO  14-10-2022 21:46:12 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент null закрыл соединение
+INFO  14-10-2022 21:46:26 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 14-10-2022 21:46:26 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:68) - На сервер пришло сообщение: /createUser ec we Super_Peter
+DEBUG 14-10-2022 21:46:26 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select login from clients where login = 'ec';
+DEBUG 14-10-2022 21:46:26 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:67) - /createUser_ok (checkingNewUsername)
+DEBUG 14-10-2022 21:46:26 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:74) - Отправка запроса к БД: select nickname from clients where nickname = 'Super_Peter';
+DEBUG 14-10-2022 21:46:26 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:76) - /createUser_failed / Данный никнейм Super_Peter не уникален в БД
+DEBUG 14-10-2022 21:46:26 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:80) - Отправка в Controller: /createNickname_failed
+INFO  14-10-2022 21:46:27 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент null закрыл соединение
+INFO  14-10-2022 21:46:39 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 21:47:01 [Thread-3] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:175) - Клиент 'Super_Peter' сменил свой ник на: ''allah''
+INFO  14-10-2022 21:47:09 [Thread-3] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:175) - Клиент ''allah'' сменил свой ник на: 'ev'
+INFO  14-10-2022 21:47:14 [Thread-3] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:175) - Клиент 'ev' сменил свой ник на: '34f'
+INFO  14-10-2022 23:01:47 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 23:02:12 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:02:17 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:175) - Клиент 'Super_Peter' сменил свой ник на: 'sdss'
+INFO  14-10-2022 23:02:30 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:175) - Клиент 'sdss' сменил свой ник на: 'Super_Peter'
+INFO  14-10-2022 23:02:34 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:169) - Клиент 'Super_Peter' ввел команду: '/change_nick' с существующим никнеймом 'Super_Peter'
+INFO  14-10-2022 23:03:06 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:169) - Клиент 'Super_Peter' ввел команду: '/change_nick' с существующим никнеймом 'MegaJack'
+INFO  14-10-2022 23:11:52 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 23:12:07 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:12:35 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 23:12:40 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:13:06 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:175) - Клиент 'Super_Peter' сменил свой ник на: 'Peter_Super'
+INFO  14-10-2022 23:13:47 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:175) - Клиент 'Peter_Super' сменил свой ник на: 'Super_Peter'
+INFO  14-10-2022 23:14:33 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:124) - Клиент 'Super_Peter' ввел комманду '/stat'
+INFO  14-10-2022 23:14:55 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:129) - Клиент 'Super_Peter' ввел комманду '/exit'
+INFO  14-10-2022 23:14:55 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент Super_Peter закрыл соединение
+INFO  14-10-2022 23:15:00 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:18:15 [Thread-3] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:175) - Клиент 'Super_Peter' сменил свой ник на: ''11''
+INFO  14-10-2022 23:18:31 [Thread-3] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:175) - Клиент ''11'' сменил свой ник на: ''11''
+INFO  14-10-2022 23:22:11 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 23:22:26 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 14-10-2022 23:22:26 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:68) - На сервер пришло сообщение: /createUser sdw 222 svf
+DEBUG 14-10-2022 23:22:26 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select login from clients where login = 'sdw';
+DEBUG 14-10-2022 23:22:26 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:67) - /createUser_ok (checkingNewUsername)
+DEBUG 14-10-2022 23:22:26 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:74) - Отправка запроса к БД: select nickname from clients where nickname = 'svf';
+DEBUG 14-10-2022 23:22:26 [Thread-1] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:82) - /createUser_ok (checkingNewNickname)
+DEBUG 14-10-2022 23:22:26 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:75) - Отправка в Controller: /createUser_ok sdw
+INFO  14-10-2022 23:22:28 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент null закрыл соединение
+INFO  14-10-2022 23:22:32 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:22:48 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:175) - Клиент 'svf' сменил свой ник на: 'vw'
+INFO  14-10-2022 23:23:01 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:169) - Клиент 'vw' ввел команду: '/change_nick' с существующим никнеймом 'Super_Peter'
+INFO  14-10-2022 23:25:31 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 23:25:52 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:29:05 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 23:29:14 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:36:45 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 23:36:59 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:37:28 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 23:37:38 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:37:44 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:175) - Клиент 'Super_Peter' сменил свой ник на: 'Pepeppppppp'
+INFO  14-10-2022 23:37:49 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:169) - Клиент 'Pepeppppppp' ввел команду: '/change_nick' с существующим никнеймом 'Pepeppppppp'
+INFO  14-10-2022 23:38:05 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:169) - Клиент 'Pepeppppppp' ввел команду: '/change_nick' с существующим никнеймом 'MegaJack'
+INFO  14-10-2022 23:38:54 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:175) - Клиент 'Pepeppppppp' сменил свой ник на: 'o'
+INFO  14-10-2022 23:43:49 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент o закрыл соединение
+INFO  14-10-2022 23:44:12 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 14-10-2022 23:44:12 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:68) - На сервер пришло сообщение: /createUser qwerrr 100500 Super_Peter
+DEBUG 14-10-2022 23:44:12 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select login from clients where login = 'qwerrr';
+DEBUG 14-10-2022 23:44:12 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:67) - /createUser_ok (checkingNewUsername)
+DEBUG 14-10-2022 23:44:12 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:74) - Отправка запроса к БД: select nickname from clients where nickname = 'Super_Peter';
+DEBUG 14-10-2022 23:44:12 [Thread-2] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:82) - /createUser_ok (checkingNewNickname)
+DEBUG 14-10-2022 23:44:12 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:75) - Отправка в Controller: /createUser_ok qwerrr
+INFO  14-10-2022 23:44:14 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент null закрыл соединение
+INFO  14-10-2022 23:44:40 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 14-10-2022 23:44:40 [Thread-3] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:68) - На сервер пришло сообщение: /createUser qwerrrr 100500 qwerrr
+DEBUG 14-10-2022 23:44:40 [Thread-3] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select login from clients where login = 'qwerrrr';
+DEBUG 14-10-2022 23:44:40 [Thread-3] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:67) - /createUser_ok (checkingNewUsername)
+DEBUG 14-10-2022 23:44:40 [Thread-3] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:74) - Отправка запроса к БД: select nickname from clients where nickname = 'qwerrr';
+DEBUG 14-10-2022 23:44:40 [Thread-3] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:82) - /createUser_ok (checkingNewNickname)
+DEBUG 14-10-2022 23:44:40 [Thread-3] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:75) - Отправка в Controller: /createUser_ok qwerrrr
+INFO  14-10-2022 23:44:42 [Thread-3] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент null закрыл соединение
+INFO  14-10-2022 23:46:39 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 14-10-2022 23:46:39 [Thread-4] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:68) - На сервер пришло сообщение: /createUser zzx 100500 Super_Peter
+DEBUG 14-10-2022 23:46:39 [Thread-4] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select login from clients where login = 'zzx';
+DEBUG 14-10-2022 23:46:39 [Thread-4] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:67) - /createUser_ok (checkingNewUsername)
+DEBUG 14-10-2022 23:46:39 [Thread-4] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:74) - Отправка запроса к БД: select nickname from clients where nickname = 'Super_Peter';
+DEBUG 14-10-2022 23:46:39 [Thread-4] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:76) - /createUser_failed / Данный никнейм Super_Peter не уникален в БД
+DEBUG 14-10-2022 23:46:39 [Thread-4] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:80) - Отправка в Controller: /createNickname_failed
+INFO  14-10-2022 23:46:43 [Thread-4] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент null закрыл соединение
+INFO  14-10-2022 23:46:57 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+DEBUG 14-10-2022 23:46:57 [Thread-5] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:68) - На сервер пришло сообщение: /createUser zxxz 100500 SuPer_Peter11
+DEBUG 14-10-2022 23:46:57 [Thread-5] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:59) - Отправка запроса к БД: select login from clients where login = 'zxxz';
+DEBUG 14-10-2022 23:46:57 [Thread-5] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:67) - /createUser_ok (checkingNewUsername)
+DEBUG 14-10-2022 23:46:57 [Thread-5] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:74) - Отправка запроса к БД: select nickname from clients where nickname = 'SuPer_Peter11';
+DEBUG 14-10-2022 23:46:57 [Thread-5] ru.khorolskiy.cha_cha_chat.server.DbAuthenticationProvider (DbAuthenticationProvider.java:82) - /createUser_ok (checkingNewNickname)
+DEBUG 14-10-2022 23:46:57 [Thread-5] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:75) - Отправка в Controller: /createUser_ok zxxz
+INFO  14-10-2022 23:46:59 [Thread-5] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:187) - Клиент null закрыл соединение
+INFO  14-10-2022 23:49:35 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  14-10-2022 23:49:45 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:49:51 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:184) - Клиент o закрыл соединение
+INFO  14-10-2022 23:50:00 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:50:17 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:175) - Клиент 'o' сменил свой ник на: 'PROVERKA'
+INFO  14-10-2022 23:50:19 [Thread-2] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:184) - Клиент PROVERKA закрыл соединение
+INFO  14-10-2022 23:50:46 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:50:46 [Thread-3] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:184) - Клиент null закрыл соединение
+INFO  14-10-2022 23:51:32 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:51:32 [Thread-4] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:184) - Клиент null закрыл соединение
+INFO  14-10-2022 23:51:54 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:52:03 [Thread-5] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:184) - Клиент PROVERKA закрыл соединение
+INFO  14-10-2022 23:52:12 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:52:12 [Thread-6] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:184) - Клиент null закрыл соединение
+INFO  14-10-2022 23:52:33 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:52:33 [Thread-7] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:184) - Клиент null закрыл соединение
+INFO  14-10-2022 23:52:56 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  14-10-2022 23:57:26 [Thread-8] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:169) - Клиент 'PROVERKA' ввел команду: '/change_nick' с существующим никнеймом 'PROVERKA'
+INFO  15-10-2022 00:01:25 [Thread-8] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:124) - Клиент 'PROVERKA' ввел комманду '/stat'
+INFO  15-10-2022 00:01:33 [Thread-8] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:124) - Клиент 'PROVERKA' ввел комманду '/stat'
+INFO  15-10-2022 00:02:00 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:27) - Серевер запущен на порту: 8789
+
+INFO  15-10-2022 00:02:10 [main] ru.khorolskiy.cha_cha_chat.server.Server (Server.java:32) - Клиент подключился
+INFO  15-10-2022 00:02:19 [Thread-1] ru.khorolskiy.cha_cha_chat.server.ClientHandler (ClientHandler.java:169) - Клиент 'PROVERKA' ввел команду: '/change_nick' с существующим никнеймом 'PROVERKA'

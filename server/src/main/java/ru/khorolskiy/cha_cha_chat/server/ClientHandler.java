@@ -36,6 +36,7 @@ public class ClientHandler {
                 while (true) {
                     String msg = in.readUTF();
                     if (msg.startsWith("/login ")) {
+                        System.out.println(msg);
                         // login Bob 100500
 
                         String[] tokens = msg.split("\\s+");
@@ -180,10 +181,10 @@ public class ClientHandler {
     }
 
     public void disconnect() {
+        LOGGER.info(String.format("Клиент %s закрыл соединение", getUsername()));
         server.unsubscribe(this);
         if (socket != null) {
             try {
-                LOGGER.info(String.format("Клиент %s закрыл соединение", getUsername()));
                 socket.close();
             } catch (IOException e) {
                 LOGGER.error("При socket.close() оказалось socket == null");
